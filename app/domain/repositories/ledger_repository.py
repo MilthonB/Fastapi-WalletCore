@@ -1,0 +1,20 @@
+
+from typing import Protocol, List
+from uuid import UUID
+
+from domain.entities.ledger_entity import LedgerEntity
+
+
+class LedgerRepository(Protocol):
+
+    def get_by_id(self, ledger_id: UUID) -> LedgerEntity:
+        ...
+    def create(self, ledger: LedgerEntity) -> LedgerEntity:
+        ...
+    def list_all(self) -> List[LedgerEntity]:
+        ... 
+    def list_by_wallet(self, wallet_id: UUID) -> List[LedgerEntity]:
+        ... 
+
+
+    
