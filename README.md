@@ -1,5 +1,7 @@
 # 🚀 Fastapi-WalletCore
+![Estado del Proyecto](https://img.shields.io/badge/STATUS-EN%20PROCESO-orange?style=for-the-badge&logo=github)
 
+# Nombre de tu Proyecto
 **Fastapi-WalletCore** es un **core financiero (wallet/ledger)** diseñado para manejar balances, transacciones y movimientos de dinero de forma **segura, consistente y extensible**.
 
 El proyecto está enfocado en **arquitectura limpia**, reglas de negocio sólidas y buenas prácticas de backend, más que en la interfaz o en un CRUD básico.
