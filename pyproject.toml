@@ -19,5 +19,26 @@ build-backend = "poetry.core.masonry.api"
 [dependency-groups]
 dev = [
     "pytest (>=9.0.2,<10.0.0)",
-    "pytest-cov (>=7.0.0,<8.0.0)"
+    "pytest-cov (>=7.0.0,<8.0.0)",
+    "black (>=25.12.0,<26.0.0)",
+    "isort (>=7.0.0,<8.0.0)",
+    "mypy (>=1.19.1,<2.0.0)"
 ]
+
+
+# --- AQUÍ EMPIEZA LA CONFIGURACIÓN DE LAS HERRAMIENTAS ---
+
+[tool.black]
+line-length = 88
+target-version = ['py313'] # Ajustado a tu versión de Python
+
+[tool.isort]
+profile = "black" # Esto es vital para que no pelee con Black
+line_length = 88
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+ignore_missing_imports = true
+# Como usas FastAPI, esto ayuda a que mypy entienda mejor los modelos
+check_untyped_defs = true

@@ -1,11 +1,10 @@
-
-from uuid import UUID
-from datetime import datetime
 from dataclasses import dataclass, replace
+from datetime import datetime
 from typing import Optional
+from uuid import UUID
 
-from domain.enums.transaction_type_enum import TransactionType
 from domain.enums.transaction_status_enum import TransactionStatus
+from domain.enums.transaction_type_enum import TransactionType
 from domain.value_objects.money_value_object import MoneyValueObject
 
 
@@ -20,7 +19,9 @@ class TransactionEntity:
     updated_at: Optional[datetime] = None
 
     def mark_completed(self) -> "TransactionEntity":
-        if(self.status != TransactionStatus.PENDING):
+        if self.status != TransactionStatus.PENDING:
             raise ValueError("Only pending transactions can be marked as completed.")
 
-        return replace(self, status=TransactionStatus.COMPLETED, updated_at=datetime.now())
+        return replace(
+            self, status=TransactionStatus.COMPLETED, updated_at=datetime.now()
+        )

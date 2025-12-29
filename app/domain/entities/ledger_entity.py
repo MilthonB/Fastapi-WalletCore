@@ -1,10 +1,10 @@
 from dataclasses import dataclass
-from uuid import UUID
 from datetime import datetime
-
+from uuid import UUID
 
 from domain.enums.ledger_direction_enum import LedgerDirection
 from domain.value_objects.money_value_object import MoneyValueObject
+
 
 @dataclass(frozen=True)
 class LedgerEntity:
@@ -14,5 +14,3 @@ class LedgerEntity:
     amount: MoneyValueObject
     direction: LedgerDirection
     created_at: datetime
-
-

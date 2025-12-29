@@ -1,15 +1,17 @@
-
 from dataclasses import dataclass, replace
-from uuid import UUID
 from datetime import datetime
 from typing import Optional
+from uuid import UUID
 
 from domain.value_objects.currency_value_object import CurrencyValueObject
+from domain.value_objects.money_value_object import MoneyValueObject
+
 
 @dataclass(frozen=True)
 class WalletEntity:
     id: UUID
     currency: CurrencyValueObject
+    balance: MoneyValueObject
     is_active: bool
     created_at: datetime
     updated_at: Optional[datetime] = None
