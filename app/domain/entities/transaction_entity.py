@@ -1,7 +1,7 @@
 
 from uuid import UUID
-from datetime import datetime, replace
-from dataclasses import dataclass
+from datetime import datetime
+from dataclasses import dataclass, replace
 from typing import Optional
 
 from domain.enums.transaction_type_enum import TransactionType
