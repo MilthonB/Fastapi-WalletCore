@@ -7,7 +7,7 @@ class CurrencyValueObject:
     code:str
 
     #VALID_CURRENCIES = {"USD", "EUR", "GBP", "JPY", "AUD", "CAD", "CHF", "CNY", "SEK", "NZD"}
-    VALID_CURRENCIES: ClassVar[List[str]] = ["USD", "EUR", "GBP", "JPY", "AUD", "CAD", "CHF", "CNY", "SEK", "NZD"]
+    VALID_CURRENCIES: ClassVar[List[str]] = ["USD", "EUR", "GBP", "MXN", "AUD", "CAD", "CHF", "CNY", "SEK", "NZD"]
 
 
     def __post_init__(self):

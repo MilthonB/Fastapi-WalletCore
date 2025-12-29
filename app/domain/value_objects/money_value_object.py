@@ -3,10 +3,12 @@ from dataclasses import dataclass
 
 from decimal import Decimal, ROUND_HALF_UP
 
+from .currency_value_object import CurrencyValueObject
+
 @dataclass(frozen=True)
 class MoneyValueObject:
     amount:Decimal
-    currency:str = "MXN"
+    currency:CurrencyValueObject
 
     def __post_init__(self):
         if self.amount < Decimal('0.00'):
