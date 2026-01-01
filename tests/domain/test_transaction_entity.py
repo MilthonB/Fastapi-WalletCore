@@ -24,7 +24,7 @@ def test_treasaction_cration() -> None:
     assert transaction.id is not None
     assert transaction.wallet_id is not None
     assert transaction.amount.amount == Decimal("100.00")
-    assert transaction.amount.currency == "MXN"
+    assert transaction.amount.currency.code == "MXN"
     assert transaction.transaction_type == TransactionType.DEPOSIT
     assert transaction.status == TransactionStatus.PENDING
 

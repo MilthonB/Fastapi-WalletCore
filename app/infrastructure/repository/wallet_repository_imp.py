@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Dict, Any
 from uuid import UUID
 
 from domain.entities.wallet_entity import WalletEntity
@@ -19,8 +19,8 @@ class WalletRepositoryImp(WalletRepository):
     def create_wallet(self, wallet: WalletEntity) -> WalletEntity:
          return self._datasources.create_wallet(wallet)
 
-    def update_wallet_by_id(self, wallet_id: UUID) -> WalletEntity:
-        return self._datasources.update_wallet_by_id(wallet_id)
+    def update_wallet_by_id(self, wallet_data_update: Dict[str, str]) -> WalletEntity:
+        return self._datasources.update_wallet_by_id(wallet_data_update)
 
     def delete_wallet_by_id(self, wallet_id: UUID) -> WalletEntity:
         return self._datasources.delete_wallet_by_id(wallet_id)
