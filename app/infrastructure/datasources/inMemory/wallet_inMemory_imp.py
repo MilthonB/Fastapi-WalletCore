@@ -68,4 +68,4 @@ class WalletDatasourcesImp(WalletRepository):
         return wallet
        
     def list_all_wallets(self) -> List[WalletEntity]:
-        return List(self.data.values())
+        return list(self.data.values())
