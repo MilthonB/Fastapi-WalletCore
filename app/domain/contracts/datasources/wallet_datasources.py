@@ -1,15 +1,7 @@
 from typing import List, Dict
 from uuid import UUID
 from abc import ABC, abstractmethod
-from pydantic import BaseModel
-
-class WalletDataContract(BaseModel):
-    wallet_id:str
-    currency:str
-    balance:str
-    is_active:bool
-    created_at:str
-    updated_at:str
+from ..data_contract.wallet.wallet_data_contract import WalletDataContract
 
 
 class WalletDatasources(ABC):
@@ -18,7 +10,7 @@ class WalletDatasources(ABC):
     @abstractmethod
     def create_wallet(self, wallet: WalletDataContract) -> WalletDataContract: ...
     @abstractmethod
-    def update_wallet_by_id(self, wallet_data_update: Dict[str, str]) -> WalletDataContract: ...
+    def update_wallet_by_id(self, wallet:WalletDataContract) -> WalletDataContract: ...
     @abstractmethod
     def delete_wallet_by_id(self, wallet_id: UUID) -> WalletDataContract: ...
     @abstractmethod

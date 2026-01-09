@@ -11,6 +11,8 @@ class UpdateWalletCurrencyUseCase:
         self.wallet_repository = wallet_repository
 
     def execute(self, dto: WalletCurrencyUpdateDTO) -> WalletEntity:
-        wallet_data_update = dto.model_dump()
 
-        return self.wallet_repository.update_wallet_by_id(wallet_data_update)
+        wallet = self.wallet_repository.get_wallet_by_id(wallet_id=dto.wallet_id)
+        wallet.change_currency(currency_new=dto.currency)
+
+        return self.wallet_repository.update_wallet_by_id(wallet=wallet)

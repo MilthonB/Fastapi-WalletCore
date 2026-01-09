@@ -18,3 +18,6 @@ class MoneyValueObject:
             "amount",
             self.amount.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP),
         )
+
+    def is_zero(self) -> bool:
+        return self.amount == Decimal("0")
