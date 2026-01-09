@@ -4,7 +4,7 @@ from  uuid import UUID
 from domain.value_objects.currency_value_object import CurrencyValueObject
 from domain.value_objects.money_value_object import MoneyValueObject
 from datetime import datetime
-from typing import Optional, Any, Dict
+from typing import Optional, Any
 from decimal import Decimal
 
 class WalletDto(BaseModel):

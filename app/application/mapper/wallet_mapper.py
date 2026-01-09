@@ -1,7 +1,7 @@
 
-
 from ..dto.wallet_dto import WalletDto
 from ...domain.entities.wallet_entity import WalletEntity
+from ...domain.contracts.datasources.wallet_datasources import WalletDataContract
 
 class WalletMapper():
     @staticmethod
@@ -15,5 +15,13 @@ class WalletMapper():
             updated_at=dto.updated_at
         )
 
-
+    @staticmethod
+    def entity_to_data_contract() -> WalletDataContract:
+        ...
+    @staticmethod
+    def data_contract_to_entity() -> WalletEntity:
+        ...
+    @staticmethod
+    def json_to_data_contract() -> WalletDataContract:
+        ...
 
