@@ -2,7 +2,6 @@
 from ..dto.wallet_dto import WalletDto
 from ...domain.entities.wallet_entity import WalletEntity
 from ...domain.contracts.data_contract.wallet.wallet_data_contract import WalletDataContract
-from typing import Any, Dict
 
 class WalletMapper():
     @staticmethod
@@ -20,7 +19,7 @@ class WalletMapper():
             balance=str(wallet_entity.balance.amount),
             is_active=wallet_entity.is_active,
             created_at=wallet_entity.created_at.isoformat(),
-            updated_at=wallet_entity.updated_at.isoformat if wallet_entity.updated_at else ""
+            updated_at=wallet_entity.updated_at.isoformat() if wallet_entity.updated_at else ""
             
         )
 

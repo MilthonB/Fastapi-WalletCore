@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from decimal import ROUND_HALF_UP, Decimal
 
 from .currency_value_object import CurrencyValueObject
+from ..exceptions.value_object_exception import NegativeAmountError
 
 
 @dataclass(frozen=True)
@@ -11,7 +12,7 @@ class MoneyValueObject:
 
     def __post_init__(self) -> None:
         if self.amount < Decimal("0.00"):
-            raise ValueError("Amount can not be negative")
+            raise NegativeAmountError("Amount can not be negative")
 
         object.__setattr__(
             self,

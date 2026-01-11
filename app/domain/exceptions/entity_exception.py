@@ -13,9 +13,10 @@ class WalletWithBalanceError(EntityException):
     """Se lanza cuando tratas de cambia la moneda con saldo pendiente"""
     ...
 
-class InfrastructureDataError(EntityException):
+class InvalidWalletDataError(EntityException):
     """Se lanza cuando los datos de viene de fuera estan corruptos"""
     ...
+
 
 
 """Excepciones de Entidad de Transaction"""

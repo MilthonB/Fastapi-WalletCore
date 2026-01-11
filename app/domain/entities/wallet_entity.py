@@ -7,6 +7,7 @@ from uuid import UUID, uuid4
 from domain.value_objects.currency_value_object import CurrencyValueObject
 from domain.value_objects.money_value_object import MoneyValueObject
 from ..contracts.data_contract.wallet.wallet_data_contract import WalletDataContract
+from ..exceptions.entity_exception import InvalidWalletDataError,WalletInactiveError,WalletWithBalanceError
 
 
 @dataclass(frozen=True)
@@ -40,7 +41,7 @@ class WalletEntity:
         try:
             wallet_id = UUID(wallet_data_contract.wallet_id)
         except (ValueError, TypeError):
-            raise ValueError(f"Invalid wallet_id from data source: {wallet_data_contract.wallet_id}")
+            raise InvalidWalletDataError(f"Invalid wallet_id from data source: {wallet_data_contract.wallet_id}")
 
         return cls(
             id=wallet_id,
@@ -63,10 +64,10 @@ class WalletEntity:
 
     def change_currency(self, currency_new: str) -> "WalletEntity":
         if not self.is_active:
-            raise ValueError("Cannot change currency of an inactive wallet")
+            raise WalletInactiveError("Cannot change currency of an inactive wallet")
         
         if not self.balance.is_zero():
-            raise ValueError("Cannot change currency when wallet has balance")
+            raise WalletWithBalanceError("Cannot change currency when wallet has balance")
         
         currency: CurrencyValueObject =  CurrencyValueObject(code=currency_new)
 
