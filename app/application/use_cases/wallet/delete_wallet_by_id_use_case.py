@@ -9,4 +9,6 @@ class DeleteWalletByIdUseCase():
         self.repository = repository
 
     def execute(self, dto: WalletIdDTO) -> WalletEntity:
-        return self.repository.delete_wallet_by_id(dto.wallet_id)
+        # tengo que verificar si ese wallet existe 
+        wallet: WalletEntity = self.repository.get_wallet_by_id(wallet_id=dto.wallet_id)
+        return self.repository.delete_wallet_by_id(wallet_id=wallet.id)
