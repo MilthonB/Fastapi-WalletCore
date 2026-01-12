@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import List
 from uuid import UUID
 from abc import ABC, abstractmethod
 from ..data_contract.wallet.wallet_data_contract import WalletDataContract

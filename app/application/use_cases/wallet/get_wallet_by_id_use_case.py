@@ -4,8 +4,8 @@ from domain.contracts.repository.wallet_repository_domain import WalletRepositor
 from domain.entities.wallet_entity import WalletEntity
 from ...dto.wallet_id_dto import WalletIdDTO
 from ...exceptions.application_exception import ApplicationError
-from ....domain.exceptions.entity_exception import InvalidWalletDataError, WalletInactiveError, WalletWithBalanceError
-from ....domain.exceptions.value_object_exception import NegativeAmountError, InvalidCurrencyError
+from ....domain.exceptions.entity_exception import InvalidWalletDataError
+
 class WalletGetByIdUseCase():
     def __init__(self, repository: WalletRepository) -> None:
         self.repository: WalletRepository = repository

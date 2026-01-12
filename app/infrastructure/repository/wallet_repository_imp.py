@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import List
 from uuid import UUID
 
 from domain.entities.wallet_entity import WalletEntity

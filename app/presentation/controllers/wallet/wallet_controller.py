@@ -31,5 +31,8 @@ class WalletController:
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail="Internal server error"
             )
+    
+    def get_wallet_by_id(self, wallet_id:str)->WalletEntity:
+        ...
 
         

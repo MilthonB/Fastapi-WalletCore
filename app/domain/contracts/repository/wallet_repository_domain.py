@@ -1,9 +1,8 @@
-from typing import List, Dict
+from typing import List
 from uuid import UUID
 from abc import ABC, abstractmethod
 
 from domain.entities.wallet_entity import WalletEntity
-from ....application.dto.wallet_dto import WalletDto
 
 
 
