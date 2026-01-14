@@ -2,13 +2,13 @@ from typing import List, Dict
 from uuid import UUID
 from domain.contracts.datasources.wallet_datasources import WalletDatasources
 from ....domain.contracts.data_contract.wallet.wallet_data_contract import WalletDataContract
-
+from ....api.data.dummy_data import IN_MEMORY_WALLET
 
 
 class WalletDatasourcesImp(WalletDatasources):
 
     def __init__(self) -> None:
-        self.data: Dict[str, WalletDataContract] = {}
+        self.data: Dict[str, WalletDataContract] = IN_MEMORY_WALLET
 
     def get_wallet_by_id(self, wallet_id: UUID) -> WalletDataContract:
 
@@ -52,5 +52,5 @@ class WalletDatasourcesImp(WalletDatasources):
 
         return wallet
        
-    def list_all_wallets(self) -> List[WalletDataContract]:
+    def list_all_wallets(self, limit:int, offset:int) -> List[WalletDataContract]:
         return list(self.data.values())

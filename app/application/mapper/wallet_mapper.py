@@ -2,6 +2,7 @@
 from ..dto.wallet_dto import WalletDto
 from ...domain.entities.wallet_entity import WalletEntity
 from ...domain.contracts.data_contract.wallet.wallet_data_contract import WalletDataContract
+from ..dto_response.wallet.wallet_dto_response import WalletResponseDTO
 
 class WalletMapper():
     @staticmethod
@@ -26,6 +27,17 @@ class WalletMapper():
     @staticmethod
     def data_contract_to_entity(data_contract: WalletDataContract) -> WalletEntity:
         return WalletEntity.rehydrate(wallet_data_contract=data_contract)
+
+    @staticmethod
+    def entity_to_dto_response(wallet_entity: WalletEntity) -> WalletResponseDTO:
+        return WalletResponseDTO(
+            id=wallet_entity.id,
+            currency=wallet_entity.currency,
+            balance=wallet_entity.balance.amount,
+            is_active=wallet_entity.is_active,
+            created_at=wallet_entity.created_at,
+            updated_at=wallet_entity.updated_at
+        )
 
     # @staticmethod
     # def json_to_data_contract(json: Dict[str, Any]) -> WalletDataContract:

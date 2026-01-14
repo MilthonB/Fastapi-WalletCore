@@ -41,7 +41,7 @@ class WalletRepositoryImp(WalletRepository):
         return wallet_entity
 
 
-    def list_all_wallets(self) -> List[WalletEntity]:
-        return [WalletMapper.data_contract_to_entity(wallet_data) for wallet_data in self._datasources.list_all_wallets()]
+    def list_all_wallets(self, limit:int, offset:int) -> List[WalletEntity]:
+        return [WalletMapper.data_contract_to_entity(wallet_data) for wallet_data in self._datasources.list_all_wallets(limit=limit, offset=offset)]
     
     
