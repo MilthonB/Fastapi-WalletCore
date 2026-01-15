@@ -1,7 +1,8 @@
 
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from app.presentation.routers import wallet_routers
+from app.exception.exception_handlers import exception_handlers
 
 
 # ------------------------------------
@@ -13,6 +14,9 @@ app = FastAPI(
     version="1.0.0"
 )
 
+
+
+exception_handlers(app=app)
 
 # ------------------------------------
 # Middleware: CORS (Cross-Origin Resource Sharing)
@@ -26,14 +30,14 @@ app.add_middleware(
 )
 
 
-test_router = APIRouter()
+# test_router = APIRouter()
 
-@test_router.get("/ping")
-def ping()-> object:
-    return {
-        "status": "ok", 
-        "message": "FastApi esta vivo"
-    }
+# @test_router.get("/ping")
+# def ping()-> object:
+#     return {
+#         "status": "ok", 
+#         "message": "FastApi esta vivo"
+#     }
 
 # ------------------------------------
 # Incluir routers con prefijo de versión

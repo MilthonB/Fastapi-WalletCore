@@ -4,6 +4,7 @@ from app.domain.contracts.datasources.wallet_datasources import WalletDatasource
 from ....domain.contracts.data_contract.wallet.wallet_data_contract import WalletDataContract
 from ....api.data.dummy_data import IN_MEMORY_WALLET
 from datetime import datetime
+from app.infrastructure.exceptions.datasources_exeptions import DatasourceNotFoundError
 
 
 class WalletDatasourcesImp(WalletDatasources):
@@ -15,7 +16,7 @@ class WalletDatasourcesImp(WalletDatasources):
 
         wallet: WalletDataContract | None= self.data.get(str(wallet_id))
         if not wallet:
-            raise Exception("Wallet not found")
+            raise 
 
         return wallet
 
@@ -25,7 +26,7 @@ class WalletDatasourcesImp(WalletDatasources):
         #     raise Exception("wallet not found")
 
         if self.data.get(str(wallet.wallet_id)):
-            raise Exception("Wallet already exists")
+            raise DatasourceNotFoundError(message="Wallet no encontrada", status_code=404)
 
         self.data[str(wallet.wallet_id)] = wallet
         return wallet
@@ -36,7 +37,8 @@ class WalletDatasourcesImp(WalletDatasources):
         wallet_new: WalletDataContract | None =  self.data.get(str(wallet.wallet_id))
         
         if not wallet_new:
-            raise Exception("Wallet not found")
+            raise DatasourceNotFoundError(message="Wallet no encontrada", status_code=404)
+            
 
         wallet.updated_at = datetime.utcnow().isoformat()
 
@@ -49,7 +51,7 @@ class WalletDatasourcesImp(WalletDatasources):
         wallet: WalletDataContract | None = self.data.get(str(wallet_id))
 
         if not wallet:
-            raise Exception("Wallet not found")
+            raise DatasourceNotFoundError(message="Wallet no encontrada", status_code=404)
         
         del self.data[str(wallet_id)]
 

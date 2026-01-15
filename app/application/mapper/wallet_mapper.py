@@ -5,6 +5,7 @@ from ...domain.contracts.data_contract.wallet.wallet_data_contract import Wallet
 from ..dto_response.wallet.wallet_dto_response import WalletResponseDTO
 
 class WalletMapper():
+
     @staticmethod
     def dto_to_entity(dto: WalletDto) -> WalletEntity:
         return WalletEntity.create_new(
@@ -14,6 +15,7 @@ class WalletMapper():
 
     @staticmethod
     def entity_to_data_contract(wallet_entity: WalletEntity) -> WalletDataContract:
+
         return WalletDataContract(
             wallet_id=str(wallet_entity.id),
             currency=wallet_entity.currency.code,
@@ -21,7 +23,6 @@ class WalletMapper():
             is_active=wallet_entity.is_active,
             created_at=wallet_entity.created_at.isoformat(),
             updated_at=wallet_entity.updated_at.isoformat() if wallet_entity.updated_at else ""
-            
         )
 
     @staticmethod

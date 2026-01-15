@@ -5,7 +5,7 @@ from app.application.dto.wallet_dto import WalletDto
 from app.domain.entities.wallet_entity import WalletEntity
 from app.application.mapper.wallet_mapper import WalletMapper
 from app.domain.exceptions.value_object_exception import NegativeAmountError, InvalidCurrencyError
-from app.application.exceptions.application_exception import ApplicationError
+from app.application.exceptions.application_exception import translate_domain_error
 
 class CreateWalletUseCase():
     def __init__(self, repository: WalletRepository):
@@ -18,7 +18,7 @@ class CreateWalletUseCase():
         try:
             wallet:WalletEntity = WalletMapper.dto_to_entity(dto)
         except (InvalidCurrencyError, NegativeAmountError) as err:
-            raise ApplicationError(err)
+            raise translate_domain_error(err)
 
         return self.repository.create_wallet(wallet=wallet)
 
