@@ -6,9 +6,11 @@ from logging.handlers import TimedRotatingFileHandler
 
 def configure_logging() -> None:
 
-    logs_path = Path("Logs")
+    logs_path = Path("logs")
     logs_path.mkdir(exist_ok=True)
     
+    log_file = logs_path / "app.log"
+    log_file.touch(exist_ok=True)
     # ======================
     # FORMATOS
     # ======================
@@ -39,7 +41,7 @@ def configure_logging() -> None:
         encoding="utf-8",
         utc=False
     )
-    file_handler.setLevel(logging.ERROR)
+    file_handler.setLevel(logging.WARNING)
     file_handler.setFormatter(file_format)
 
     # ======================

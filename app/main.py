@@ -3,8 +3,10 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from app.presentation.routers import wallet_routers
 from app.exception.exception_handlers import exception_handlers
+from app.core.logging import logging_config
 
 
+logging_config.configure_logging()
 # ------------------------------------
 # Crear instancia de FastAPI
 # ------------------------------------
