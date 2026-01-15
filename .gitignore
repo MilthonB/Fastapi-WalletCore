@@ -1,3 +1,5 @@
 
 README copy.md
 .venv/
+
+__pycache__/

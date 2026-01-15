@@ -4,8 +4,8 @@ from typing import Optional
 from decimal import Decimal
 from uuid import UUID, uuid4
 
-from domain.value_objects.currency_value_object import CurrencyValueObject
-from domain.value_objects.money_value_object import MoneyValueObject
+from ...domain.value_objects.currency_value_object import CurrencyValueObject
+from ...domain.value_objects.money_value_object import MoneyValueObject
 from ..contracts.data_contract.wallet.wallet_data_contract import WalletDataContract
 from ..exceptions.entity_exception import InvalidWalletDataError,WalletInactiveError,WalletWithBalanceError
 

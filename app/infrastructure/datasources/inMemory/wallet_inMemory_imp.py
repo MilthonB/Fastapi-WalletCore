@@ -1,8 +1,9 @@
 from typing import List, Dict
 from uuid import UUID
-from domain.contracts.datasources.wallet_datasources import WalletDatasources
+from app.domain.contracts.datasources.wallet_datasources import WalletDatasources
 from ....domain.contracts.data_contract.wallet.wallet_data_contract import WalletDataContract
 from ....api.data.dummy_data import IN_MEMORY_WALLET
+from datetime import datetime
 
 
 class WalletDatasourcesImp(WalletDatasources):
@@ -29,17 +30,19 @@ class WalletDatasourcesImp(WalletDatasources):
         self.data[str(wallet.wallet_id)] = wallet
         return wallet
 
-    def update_wallet_by_id(self, wallet_new:WalletDataContract) -> WalletDataContract:
+    def update_wallet_by_id(self, wallet:WalletDataContract) -> WalletDataContract:
         
 
-        wallet: WalletDataContract | None =  self.data.get(str(wallet_new.wallet_id))
+        wallet_new: WalletDataContract | None =  self.data.get(str(wallet.wallet_id))
         
-        if not wallet:
+        if not wallet_new:
             raise Exception("Wallet not found")
 
-        self.data[str(wallet.wallet_id)] = wallet_new
+        wallet.updated_at = datetime.utcnow().isoformat()
 
-        return wallet_new
+        self.data[str(wallet_new.wallet_id)] = wallet
+
+        return wallet
 
     def delete_wallet_by_id(self, wallet_id: UUID) -> WalletDataContract:
 

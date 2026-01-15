@@ -1,10 +1,10 @@
 
 
-from domain.contracts.repository.wallet_repository_domain import WalletRepository
-from domain.entities.wallet_entity import WalletEntity
-from ...dto.wallet_id_dto import WalletIdDTO
-from ...exceptions.application_exception import ApplicationError
-from ....domain.exceptions.entity_exception import InvalidWalletDataError
+from app.domain.contracts.repository.wallet_repository_domain import WalletRepository
+from app.domain.entities.wallet_entity import WalletEntity
+from app.application.dto.wallet_id_dto import WalletIdDTO
+from app.application.exceptions.application_exception import ApplicationError
+from app.domain.exceptions.entity_exception import InvalidWalletDataError
 
 class WalletGetByIdUseCase():
     def __init__(self, repository: WalletRepository) -> None:

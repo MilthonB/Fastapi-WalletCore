@@ -1,11 +1,11 @@
 
 
-from domain.contracts.repository.wallet_repository_domain import WalletRepository
-from ...dto.wallet_dto import WalletDto
-from ....domain.entities.wallet_entity import WalletEntity
-from ...mapper.wallet_mapper import WalletMapper
-from ....domain.exceptions.value_object_exception import NegativeAmountError, InvalidCurrencyError
-from ...exceptions.application_exception import ApplicationError
+from app.domain.contracts.repository.wallet_repository_domain import WalletRepository
+from app.application.dto.wallet_dto import WalletDto
+from app.domain.entities.wallet_entity import WalletEntity
+from app.application.mapper.wallet_mapper import WalletMapper
+from app.domain.exceptions.value_object_exception import NegativeAmountError, InvalidCurrencyError
+from app.application.exceptions.application_exception import ApplicationError
 
 class CreateWalletUseCase():
     def __init__(self, repository: WalletRepository):

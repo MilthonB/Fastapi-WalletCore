@@ -8,7 +8,7 @@ class WalletMapper():
     @staticmethod
     def dto_to_entity(dto: WalletDto) -> WalletEntity:
         return WalletEntity.create_new(
-            currency=dto.currency,
+            currency_code=dto.currency,
             inital_amount=dto.balance,
         )
 
@@ -32,11 +32,11 @@ class WalletMapper():
     def entity_to_dto_response(wallet_entity: WalletEntity) -> WalletResponseDTO:
         return WalletResponseDTO(
             id=wallet_entity.id,
-            currency=wallet_entity.currency,
+            currency=wallet_entity.currency.code,
             balance=wallet_entity.balance.amount,
             is_active=wallet_entity.is_active,
-            created_at=wallet_entity.created_at,
-            updated_at=wallet_entity.updated_at
+            created_at=wallet_entity.created_at.isoformat(),
+            updated_at=wallet_entity.updated_at.isoformat() if wallet_entity.updated_at else None
         )
 
     # @staticmethod

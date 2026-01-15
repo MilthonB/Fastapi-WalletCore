@@ -1,11 +1,11 @@
 
 
-from ...dto.wallet_currency_update_dto import WalletCurrencyUpdateDTO
-from domain.contracts.repository.wallet_repository_domain import WalletRepository
-from domain.entities.wallet_entity import WalletEntity
+from app.application.dto.wallet_currency_update_dto import WalletCurrencyUpdateDTO
+from app.domain.contracts.repository.wallet_repository_domain import WalletRepository
+from app.domain.entities.wallet_entity import WalletEntity
 
-from ...exceptions.application_exception import ApplicationError
-from ....domain.exceptions.entity_exception import WalletInactiveError, WalletWithBalanceError
+from app.application.exceptions.application_exception import ApplicationError
+from app.domain.exceptions.entity_exception import WalletInactiveError, WalletWithBalanceError
 
 
 

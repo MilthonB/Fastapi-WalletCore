@@ -2,7 +2,7 @@ from typing import List
 from uuid import UUID
 from abc import ABC, abstractmethod
 
-from domain.entities.wallet_entity import WalletEntity
+from app.domain.entities.wallet_entity import WalletEntity
 
 
 

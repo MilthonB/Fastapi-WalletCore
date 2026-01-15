@@ -3,7 +3,7 @@ from pydantic import BaseModel,field_validator
 from typing import Any
 from decimal import Decimal, InvalidOperation
 
-from ..exceptions.dto_exceptions import InvalidBalanceError, InvalidCurrencyError, InvalidTypeError, InvalidValueError
+from app.application.exceptions.dto_exceptions import InvalidBalanceError, InvalidCurrencyError, InvalidTypeError, InvalidValueError
 
 class WalletDto(BaseModel):
     # wallet_id: UUID

@@ -1,11 +1,11 @@
 from typing import List
-from uuid import UUID
+from uuid import UUID 
 
-from domain.entities.wallet_entity import WalletEntity
-from domain.contracts.repository.wallet_repository_domain import WalletRepository
-from domain.contracts.datasources.wallet_datasources import WalletDatasources
+from app.domain.entities.wallet_entity import WalletEntity
+from app.domain.contracts.repository.wallet_repository_domain import WalletRepository
+from app.domain.contracts.datasources.wallet_datasources import WalletDatasources
 from ...domain.contracts.datasources.wallet_datasources import WalletDataContract
-from ...application.mapper.wallet_mapper import WalletMapper
+from app.application.mapper.wallet_mapper import WalletMapper
 
 
 class WalletRepositoryImp(WalletRepository):
