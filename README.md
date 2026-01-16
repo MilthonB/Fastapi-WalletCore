@@ -262,14 +262,41 @@ El proyecto se encuentra desplegado en Railway para fines de demostración y pru
 ### 🏦 Wallet
 
 #### Crear una wallet
-`POST /wallets`
+`POST /api/v1/wallets/`
 
 Crea una nueva wallet con balance inicial en cero.
+
+#### Request Body - Ejemplo
+
+```
+{
+  "currency": "MXN",
+  "balance": 5000,
+  "is_active": true
+}
+```
+
+Reglas:
+ - No permite balances negativos
+ - Tipo de moneda restriguidas a las siguientes
+ #### Tipos de monedas permitidas
+```
+"USD"
+"EUR"
+"GBP"
+"MXN"
+"AUD"
+"CAD"
+"CHF"
+"CNY"
+"SEK"
+"NZD"
+```
 
 ---
 
 #### Obtener información de una wallet
-`GET /wallets/{wallet_id}`
+`GET /api/v1/wallets/{wallet_id}`
 
 Devuelve:
 - balance actual
@@ -278,50 +305,27 @@ Devuelve:
 
 ---
 
-#### Obtener balance
-`GET /wallets/{wallet_id}/balance`
+#### Obtener los wallets
+`GET /api/v1/wallets/all?limit=10&offset=1`
 
-Devuelve el balance actual calculado a partir del ledger.
+Devuelve:
+- Todos los wallets, activos o inactivos
 
 ---
 
-### 💸 Transacciones
+#### Eliminacion de wallet
+`DELETE /api/v1/wallets/{wallet_id}`
 
-#### Crédito (depositar dinero)
-`POST /wallets/{wallet_id}/credit`
-
-Registra un **crédito** en la wallet.
-
-- No modifica el balance directamente
-- Genera una transacción
-- Registra el movimiento en el ledger
+Elimina una **wallet**.
 
 ---
 
 #### Débito (retirar dinero)
-`POST /wallets/{wallet_id}/debit`
+`PATCH /api/v1/wallets/{wallet_id}/currency?currency=MXN`
 
-Registra un **débito** en la wallet.
+Modifica el tipo de **moneda** en la wallet.
 
-Reglas:
-- No permite balance negativo
-- Valida estado de la wallet
-- Registra en ledger
 
----
-
-### 📜 Ledger
-
-#### Obtener movimientos de una wallet
-`GET /wallets/{wallet_id}/ledger`
-
-Devuelve el historial completo de movimientos.
-
-- Ordenado por fecha
-- Inmutable
-- Fuente de verdad del balance
-
----
 
 ### 🩺 Sistema
 
