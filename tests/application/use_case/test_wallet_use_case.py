@@ -1,18 +1,9 @@
 
-import pytest
 from uuid import uuid4, UUID
 from datetime import datetime, timezone
-from typing import List
 
 from app.infrastructure.datasources.inMemory.wallet_inMemory_imp import WalletDatasourcesImp
-from app.application.dto.wallet_currency_update_dto import WalletCurrencyUpdateDTO
-from app.application.use_cases.wallet.update_wallet_currency_use_case import UpdateWalletCurrencyUseCase
-from app.infrastructure.repository.wallet_repository_imp import WalletRepositoryImp
-from app.domain.entities.wallet_entity import WalletEntity
-from app.domain.value_objects.currency_value_object import CurrencyValueObject
-from app.domain.value_objects.money_value_object import MoneyValueObject
 from app.domain.contracts.data_contract.wallet.wallet_data_contract import WalletDataContract
-from decimal import Decimal
 
 
 

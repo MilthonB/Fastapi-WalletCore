@@ -1,7 +1,7 @@
 
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
-from app.presentation.routers import wallet_routers
+from app.presentation.routers import wallet_routers, health_router
 from app.exception.exception_handlers import exception_handlers
 from app.core.logging import logging_config
 
@@ -40,10 +40,11 @@ app.add_middleware(
 #         "status": "ok", 
 #         "message": "FastApi esta vivo"
 #     }
-
+ 
 # ------------------------------------
 # Incluir routers con prefijo de versión
 # ------------------------------------
+app.include_router(health_router.route)
 app.include_router(wallet_routers.router, prefix="/api/v1/wallets", tags=["wallets"])
 
 

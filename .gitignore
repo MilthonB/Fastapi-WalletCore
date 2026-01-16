@@ -6,3 +6,5 @@ README copy.md
 __pycache__/
 **/__pycache__/
 *.pyc
+
+logs/
