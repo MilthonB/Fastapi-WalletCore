@@ -46,14 +46,14 @@ El proyecto sigue **Clean Architecture**, manteniendo el dominio completamente i
 
 ```text
 app/
-├── api/              # Rutas FastAPI (capa de entrada)
+├── api/              # Datos, dummy, DB, ORM, Supabase
 ├── core/             # Configuración, settings, seguridad
 ├── domain/           # Dominio puro (entidades y reglas)
 ├── application/      # Casos de uso
 ├── infrastructure/   # DB, ORM, repositorios (futuro)
 ├── shared/           # Utilidades compartidas
-└── app.py           # Entry point FastAPI
-
+├── presentation/     # Controller / Routers (FastAPI)
+└── main.py           # Configuracion de FastAPI app
 ```
 
 ---
