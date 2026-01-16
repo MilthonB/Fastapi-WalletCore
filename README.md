@@ -2,6 +2,7 @@
 
 
 ![Estado del Proyecto](https://img.shields.io/badge/STATUS-STABLE-success?style=for-the-badge&logo=fastapi&logoColor=white)
+![Estado del Proyecto](https://img.shields.io/badge/STATUS-BETA-yellow?style=for-the-badge&logo=fastapi&logoColor=white)
 ![Python Version](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 
