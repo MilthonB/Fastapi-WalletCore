@@ -1,7 +1,8 @@
 # 🚀 Fastapi-WalletCore
 
-![Estado del Proyecto](https://img.shields.io/badge/STATUS-EN%20PROCESO-orange?style=for-the-badge&logo=fastapi&logoColor=white)
-![Python Version](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+![Estado del Proyecto](https://img.shields.io/badge/STATUS-STABLE-success?style=for-the-badge&logo=fastapi&logoColor=white)
+![Python Version](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 
 # Nombre de tu Proyecto
@@ -174,12 +175,12 @@ poetry run pytest --cov=app
 ```
 
 
-### ▶️ Ejecutar comandos
+### ▶️ Ejecutar comandos en desarrollo
 
 Ejecutar el servidor:
 
 ```bash
-poetry run uvicorn app.main:app --reload
+poetry run fastapi dev app/main.py
 
 ```
 
@@ -233,13 +234,22 @@ En etapas posteriores se integrará:
 - SQLAlchemy
 - Migraciones automáticas con Alembic
 ```
+## 🚀 Deployment
+
+El proyecto se encuentra desplegado en Railway para fines de demostración y pruebas técnicas.
+
+🔗 https://fastapi-walletcore-production.up.railway.app
+
+> ⚠️ Nota: Actualmente utiliza datasources en memoria.  
+> El objetivo del despliegue es demostrar arquitectura, manejo de errores y testing.
+
 
 ## 🗺️ Roadmap
 
 - [x] Setup inicial con FastAPI + Poetry
 - [x] Arquitectura limpia
-- [ ] Dominio financiero (Wallet, Money, Transaction)
-- [ ] Casos de uso
+- [X] Dominio financiero (Wallet, Money, Transaction)
+- [X] Casos de uso
 - [ ] Persistencia con PostgreSQL
 - [ ] Migraciones automáticas
 - [ ] Dockerización
