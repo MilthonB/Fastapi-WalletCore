@@ -3,7 +3,7 @@ name = "fastapi-walletcore"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Milthon",email = "milthonbor@gmail.com"}
+    {name = "Milthon"}
 ]
 readme = "README.md"
 requires-python = ">=3.13"
